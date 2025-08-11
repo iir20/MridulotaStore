@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MRIDULOTA - Natural Handmade Soaps & Skincare</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sage: '#87A96B',
+                        forest: '#2D5016',
+                        earth: '#D4A574',
+                        cream: '#FAF7F2',
+                        gold: '#C19A6B',
+                        charcoal: '#2C2C2C'
+                    },
+                    fontFamily: {
+                        'playfair': ['Playfair Display', 'serif'],
+                        'inter': ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-cream font-inter text-charcoal">
+
+    <!-- @COMPONENT: Header/Navigation -->
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <h1 class="text-2xl font-playfair font-bold text-forest">MRIDULOTA</h1>
+                    <p class="text-xs text-sage font-medium">মৃদুলতা</p>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="text-forest hover:text-sage px-3 py-2 text-sm font-medium transition-colors duration-200">Home</a>
+                        <a href="#shop" class="text-charcoal hover:text-sage px-3 py-2 text-sm font-medium transition-colors duration-200">Shop</a>
+                        <a href="#about" class="text-charcoal hover:text-sage px-3 py-2 text-sm font-medium transition-colors duration-200">About</a>
+                        <a href="#contact" class="text-charcoal hover:text-sage px-3 py-2 text-sm font-medium transition-colors duration-200">Contact</a>
+                    </div>
+                </div>
+
+                <!-- Cart and Mobile Menu -->
+                <div class="flex items-center space-x-4">
+                    <button class="text-charcoal hover:text-sage transition-colors duration-200 relative">
+                        <i class="fas fa-shopping-cart text-lg"></i>
+                        <span class="absolute -top-2 -right-2 bg-sage text-white text-xs rounded-full h-5 w-5 flex items-center justify-center" data-bind="cart.itemCount">0</span>
+                    </button>
+                    <button class="md:hidden text-charcoal hover:text-sage">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- @END_COMPONENT: Header/Navigation -->
+
+    <!-- @COMPONENT: Hero Section -->
+    <!-- Hero Section -->
+    <section id="home" class="relative bg-gradient-to-br from-sage/10 to-earth/10 min-h-screen flex items-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Hero Content -->
+                <div class="space-y-8">
+                    <div class="space-y-4">
+                        <h1 class="text-5xl lg:text-6xl font-playfair font-bold text-forest leading-tight">
+                            Nature's Purity,<br>
+                            <span class="text-sage">Handmade</span> with Love
+                        </h1>
+                        <p class="text-lg text-gray-600 max-w-xl leading-relaxed">
+                            Discover our collection of 100% natural, handcrafted soaps made with love and traditional Bengali wisdom. Each bar is a gentle embrace for your skin.
+                        </p>
+                        <div class="text-sm text-sage font-medium">
+                            ১০০% প্রাকৃতিক • হাতে তৈরি • ভালোবাসায় মোড়ানো
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="bg-sage hover:bg-forest text-white px-8 py-4 rounded-full font-medium transition-all duration-300 transform hover:scale-105 shadow-lg">
+                            Shop Our Collection
+                        </button>
+                        <button class="border-2 border-sage text-sage hover:bg-sage hover:text-white px-8 py-4 rounded-full font-medium transition-all duration-300">
+                            Learn Our Story
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Hero Image -->
+                <div class="relative">
+                    <!-- A collection of handmade natural soaps arranged artistically with botanical elements -->
+                    <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=800" alt="Natural handmade soaps with botanical elements" class="rounded-3xl shadow-2xl w-full h-[500px] object-cover" />
+                    <div class="absolute -bottom-4 -left-4 bg-white p-6 rounded-2xl shadow-lg">
+                        <div class="text-2xl font-playfair font-bold text-forest">500+</div>
+                        <div class="text-sm text-gray-600">Happy Customers</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Hero Section -->
+
+    <!-- @COMPONENT: Featured Products Section -->
+    <!-- Featured Products -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-playfair font-bold text-forest mb-4">Featured Collection</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Handpicked favorites crafted with premium natural ingredients and traditional care
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- @MAP: featuredProducts.map(product => ( -->
+                <!-- Product Card 1: Neem Soap -->
+                <div class="group bg-cream rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2" data-mock="true">
+                    <div class="relative overflow-hidden">
+                        <!-- Natural neem soap bar with green herbs -->
+                        <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=400" alt="Natural neem soap with herbs" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" />
+                        <div class="absolute top-4 right-4 bg-sage text-white px-3 py-1 rounded-full text-sm font-medium">
+                            Bestseller
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-playfair font-semibold text-forest mb-2" data-bind="product.name">Neem Purifying Soap</h3>
+                        <p class="text-sm text-sage mb-2">নিম সাবান</p>
+                        <p class="text-gray-600 mb-4" data-bind="product.description">Naturally purifying with neem extracts for healthy, clear skin</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-forest" data-bind="product.price">৳280</span>
+                            <button class="bg-sage hover:bg-forest text-white px-6 py-2 rounded-full text-sm font-medium transition-colors duration-200" data-event="click:addToCart">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 2: Turmeric Soap -->
+                <div class="group bg-cream rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2" data-mock="true">
+                    <div class="relative overflow-hidden">
+                        <!-- Golden turmeric soap bar with turmeric powder -->
+                        <img src="https://pixabay.com/get/g9e79885c60121f9092921df30cc9dd449cf5f87d27ec711abc749be47de79f4030796d4e0fbb98a9daec986b031775cf24e90d363e9a0e4c3bc0668d91995a07_1280.jpg" alt="Golden turmeric soap with turmeric powder" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" />
+                        <div class="absolute top-4 right-4 bg-earth text-white px-3 py-1 rounded-full text-sm font-medium">
+                            New
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-playfair font-semibold text-forest mb-2" data-bind="product.name">Turmeric Glow Soap</h3>
+                        <p class="text-sm text-sage mb-2">হলুদ সাবান</p>
+                        <p class="text-gray-600 mb-4" data-bind="product.description">Brightening turmeric blend for radiant, even-toned skin</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-forest" data-bind="product.price">৳320</span>
+                            <button class="bg-sage hover:bg-forest text-white px-6 py-2 rounded-full text-sm font-medium transition-colors duration-200" data-event="click:addToCart">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 3: Aloe Vera Soap -->
+                <div class="group bg-cream rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2" data-mock="true">
+                    <div class="relative overflow-hidden">
+                        <!-- Green aloe vera soap with fresh aloe leaves -->
+                        <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=400" alt="Aloe vera soap with fresh aloe leaves" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500" />
+                        <div class="absolute top-4 right-4 bg-forest text-white px-3 py-1 rounded-full text-sm font-medium">
+                            Organic
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-playfair font-semibold text-forest mb-2" data-bind="product.name">Aloe Soothing Soap</h3>
+                        <p class="text-sm text-sage mb-2">অ্যালোভেরা সাবান</p>
+                        <p class="text-gray-600 mb-4" data-bind="product.description">Gentle aloe vera formula for sensitive and dry skin</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-forest" data-bind="product.price">৳300</span>
+                            <button class="bg-sage hover:bg-forest text-white px-6 py-2 rounded-full text-sm font-medium transition-colors duration-200" data-event="click:addToCart">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- @END_MAP )) -->
+            </div>
+
+            <div class="text-center mt-12">
+                <button class="bg-forest hover:bg-sage text-white px-8 py-4 rounded-full font-medium transition-colors duration-200">
+                    View All Products
+                </button>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Featured Products Section -->
+
+    <!-- @COMPONENT: About Section -->
+    <!-- About MRIDULOTA -->
+    <section id="about" class="py-20 bg-gradient-to-br from-sage/10 to-cream">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="space-y-8">
+                    <div class="space-y-4">
+                        <h2 class="text-4xl font-playfair font-bold text-forest">About MRIDULOTA</h2>
+                        <p class="text-lg text-gray-600 leading-relaxed">
+                            Born from ancient Bengali traditions and a passion for natural skincare, MRIDULOTA creates handmade soaps using time-honored recipes passed down through generations.
+                        </p>
+                        <p class="text-gray-600 leading-relaxed">
+                            Each soap is carefully crafted with 100% natural ingredients, free from harsh chemicals and artificial fragrances. We believe in the power of nature to nourish and heal your skin, while supporting sustainable and eco-friendly practices.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="text-center p-4 bg-white rounded-2xl shadow-lg">
+                            <div class="text-3xl font-playfair font-bold text-sage">100%</div>
+                            <div class="text-sm text-gray-600">Natural Ingredients</div>
+                        </div>
+                        <div class="text-center p-4 bg-white rounded-2xl shadow-lg">
+                            <div class="text-3xl font-playfair font-bold text-sage">500+</div>
+                            <div class="text-sm text-gray-600">Happy Customers</div>
+                        </div>
+                        <div class="text-center p-4 bg-white rounded-2xl shadow-lg">
+                            <div class="text-3xl font-playfair font-bold text-sage">50+</div>
+                            <div class="text-sm text-gray-600">Natural Recipes</div>
+                        </div>
+                        <div class="text-center p-4 bg-white rounded-2xl shadow-lg">
+                            <div class="text-3xl font-playfair font-bold text-sage">5★</div>
+                            <div class="text-sm text-gray-600">Customer Rating</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <!-- Artisan hands crafting handmade soap in a workshop -->
+                    <img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" alt="Artisan crafting handmade soap" class="rounded-3xl shadow-2xl w-full h-[500px] object-cover" />
+                    <div class="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-xl">
+                        <div class="text-sm text-sage font-medium mb-1">Handcrafted since</div>
+                        <div class="text-2xl font-playfair font-bold text-forest">2018</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: About Section -->
+
+    <!-- @COMPONENT: Testimonials Section -->
+    <!-- Testimonials -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-playfair font-bold text-forest mb-4">What Our Customers Say</h2>
+                <p class="text-lg text-gray-600">Real stories from real people who love our natural soaps</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- @MAP: testimonials.map(testimonial => ( -->
+                <!-- Testimonial 1 -->
+                <div class="bg-cream p-8 rounded-2xl shadow-lg" data-mock="true">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-gold">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6 leading-relaxed" data-bind="testimonial.text">
+                        "The neem soap has completely transformed my skin. No more breakouts and my skin feels so soft and healthy. I'm never going back to commercial soaps!"
+                    </p>
+                    <div class="flex items-center">
+                        <!-- Happy customer portrait -->
+                        <img src="https://pixabay.com/get/g8362fe4f7eae88311bfda09812f57da6431bac4cd7fab029b870312b0d7ecb8369c8bfb1a5302d457b64c98825f7347787cea89e47d2ef3ca8cc96c8ae0a6dfa_1280.jpg" alt="Customer testimonial" class="w-12 h-12 rounded-full object-cover mr-4" />
+                        <div>
+                            <div class="font-semibold text-forest" data-bind="testimonial.name">Rashida Ahmed</div>
+                            <div class="text-sm text-gray-500" data-bind="testimonial.location">Dhaka</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-cream p-8 rounded-2xl shadow-lg" data-mock="true">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-gold">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6 leading-relaxed" data-bind="testimonial.text">
+                        "I have very sensitive skin and most soaps irritate it. MRIDULOTA's aloe vera soap is so gentle and soothing. Perfect for my daily routine!"
+                    </p>
+                    <div class="flex items-center">
+                        <!-- Another satisfied customer -->
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&h=100" alt="Customer testimonial" class="w-12 h-12 rounded-full object-cover mr-4" />
+                        <div>
+                            <div class="font-semibold text-forest" data-bind="testimonial.name">Farhan Khan</div>
+                            <div class="text-sm text-gray-500" data-bind="testimonial.location">Chittagong</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-cream p-8 rounded-2xl shadow-lg" data-mock="true">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-gold">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6 leading-relaxed" data-bind="testimonial.text">
+                        "The turmeric soap gives my skin such a beautiful glow! I love that it's made with natural ingredients. The quality is outstanding and shipping was fast."
+                    </p>
+                    <div class="flex items-center">
+                        <!-- Happy customer with glowing skin -->
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&h=100" alt="Customer testimonial" class="w-12 h-12 rounded-full object-cover mr-4" />
+                        <div>
+                            <div class="font-semibold text-forest" data-bind="testimonial.name">Sania Rahman</div>
+                            <div class="text-sm text-gray-500" data-bind="testimonial.location">Sylhet</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- @END_MAP )) -->
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Testimonials Section -->
+
+    <!-- @COMPONENT: Shop Section -->
+    <!-- Shop Preview -->
+    <section id="shop" class="py-20 bg-gradient-to-br from-cream to-sage/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-playfair font-bold text-forest mb-4">Our Complete Collection</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
+                    Explore our full range of handmade natural products, each crafted with care and traditional wisdom
+                </p>
+                
+                <!-- Filter Tabs -->
+                <div class="flex flex-wrap justify-center gap-4 mb-12">
+                    <button class="bg-sage text-white px-6 py-2 rounded-full font-medium transition-colors duration-200" data-filter="all">All Products</button>
+                    <button class="bg-white text-sage hover:bg-sage hover:text-white px-6 py-2 rounded-full font-medium transition-colors duration-200" data-filter="soaps">Soaps</button>
+                    <button class="bg-white text-sage hover:bg-sage hover:text-white px-6 py-2 rounded-full font-medium transition-colors duration-200" data-filter="scrubs">Scrubs</button>
+                    <button class="bg-white text-sage hover:bg-sage hover:text-white px-6 py-2 rounded-full font-medium transition-colors duration-200" data-filter="oils">Oils</button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- @MAP: products.map(product => ( -->
+                <!-- Product Card 1 -->
+                <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2" data-mock="true" data-category="soaps">
+                    <div class="relative overflow-hidden">
+                        <!-- Lavender scented handmade soap -->
+                        <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=300" alt="Lavender handmade soap" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" />
+                        <div class="absolute top-3 right-3 bg-sage/90 text-white px-2 py-1 rounded-full text-xs font-medium">
+                            Popular
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-forest mb-1" data-bind="product.name">Lavender Dream</h3>
+                        <p class="text-sm text-gray-600 mb-3" data-bind="product.description">Relaxing lavender soap</p>
+                        <div class="flex items-center justify-between">
+                            <span class="font-bold text-forest" data-bind="product.price">৳290</span>
+                            <button class="bg-sage hover:bg-forest text-white px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200">
+                                Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 2 -->
+                <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2" data-mock="true" data-category="scrubs">
+                    <div class="relative overflow-hidden">
+                        <!-- Coffee body scrub with coffee beans -->
+                        <img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=300" alt="Coffee body scrub" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" />
+                        <div class="absolute top-3 right-3 bg-earth/90 text-white px-2 py-1 rounded-full text-xs font-medium">
+                            New
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-forest mb-1" data-bind="product.name">Coffee Body Scrub</h3>
+                        <p class="text-sm text-gray-600 mb-3" data-bind="product.description">Energizing coffee scrub</p>
+                        <div class="flex items-center justify-between">
+                            <span class="font-bold text-forest" data-bind="product.price">৳450</span>
+                            <button class="bg-sage hover:bg-forest text-white px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200">
+                                Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 3 -->
+                <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2" data-mock="true" data-category="oils">
+                    <div class="relative overflow-hidden">
+                        <!-- Natural coconut oil in glass bottle -->
+                        <img src="https://pixabay.com/get/g99e32607d5cfaed8cc44a8ce882277c4c8cd09d17ed54e057c73e47eda20d3022feb4cdd611ebff19d7094afa3faf9e02e1092cdd29b6e758dac0a41a7711cf2_1280.jpg" alt="Natural coconut oil" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" />
+                        <div class="absolute top-3 right-3 bg-forest/90 text-white px-2 py-1 rounded-full text-xs font-medium">
+                            Organic
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-forest mb-1" data-bind="product.name">Pure Coconut Oil</h3>
+                        <p class="text-sm text-gray-600 mb-3" data-bind="product.description">Cold-pressed coconut oil</p>
+                        <div class="flex items-center justify-between">
+                            <span class="font-bold text-forest" data-bind="product.price">৳380</span>
+                            <button class="bg-sage hover:bg-forest text-white px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200">
+                                Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 4 -->
+                <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2" data-mock="true" data-category="soaps">
+                    <div class="relative overflow-hidden">
+                        <!-- Honey and oatmeal soap with natural ingredients -->
+                        <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=300" alt="Honey oatmeal soap" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" />
+                        <div class="absolute top-3 right-3 bg-gold/90 text-white px-2 py-1 rounded-full text-xs font-medium">
+                            Limited
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-forest mb-1" data-bind="product.name">Honey Oatmeal</h3>
+                        <p class="text-sm text-gray-600 mb-3" data-bind="product.description">Moisturizing honey soap</p>
+                        <div class="flex items-center justify-between">
+                            <span class="font-bold text-forest" data-bind="product.price">৳340</span>
+                            <button class="bg-sage hover:bg-forest text-white px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200">
+                                Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- @END_MAP )) -->
+            </div>
+
+            <div class="text-center mt-12">
+                <button class="bg-forest hover:bg-sage text-white px-8 py-4 rounded-full font-medium transition-colors duration-200">
+                    View Full Collection
+                </button>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Shop Section -->
+
+    <!-- @COMPONENT: Newsletter Section -->
+    <!-- Newsletter Signup -->
+    <section class="py-20 bg-forest text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-playfair font-bold mb-4">Stay Connected with Nature</h2>
+            <p class="text-lg mb-8 text-sage opacity-90">
+                Subscribe to receive skincare tips, new product launches, and exclusive offers
+            </p>
+            
+            <form class="max-w-lg mx-auto" data-implementation="Integrate with email service like Mailchimp">
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <input 
+                        type="email" 
+                        placeholder="Enter your email address"
+                        class="flex-1 px-6 py-4 rounded-full text-charcoal focus:outline-none focus:ring-2 focus:ring-sage"
+                        data-validation="email"
+                        data-mock="true"
+                    />
+                    <button 
+                        type="submit"
+                        class="bg-sage hover:bg-cream hover:text-forest text-white px-8 py-4 rounded-full font-medium transition-colors duration-200"
+                        data-event="click:handleNewsletterSignup"
+                    >
+                        Subscribe
+                    </button>
+                </div>
+            </form>
+
+            <p class="text-sm text-sage opacity-70 mt-4">
+                No spam, unsubscribe anytime. We respect your privacy.
+            </p>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Newsletter Section -->
+
+    <!-- @COMPONENT: Contact Section -->
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <!-- Contact Info -->
+                <div class="space-y-8">
+                    <div>
+                        <h2 class="text-4xl font-playfair font-bold text-forest mb-4">Get in Touch</h2>
+                        <p class="text-lg text-gray-600 leading-relaxed">
+                            Have questions about our products? We'd love to hear from you. Reach out and let's talk about natural skincare!
+                        </p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="flex items-center space-x-4">
+                            <div class="bg-sage/10 p-3 rounded-full">
+                                <i class="fas fa-phone text-sage"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-forest">Phone</div>
+                                <div class="text-gray-600" data-bind="contact.phone">+880 1XXX-XXXXXX</div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-4">
+                            <div class="bg-sage/10 p-3 rounded-full">
+                                <i class="fas fa-envelope text-sage"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-forest">Email</div>
+                                <div class="text-gray-600" data-bind="contact.email">hello@mridulota.com</div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-4">
+                            <div class="bg-sage/10 p-3 rounded-full">
+                                <i class="fas fa-map-marker-alt text-sage"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-forest">Address</div>
+                                <div class="text-gray-600" data-bind="contact.address">Dhaka, Bangladesh</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-sage/10 hover:bg-sage hover:text-white text-sage p-3 rounded-full transition-colors duration-200">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="bg-sage/10 hover:bg-sage hover:text-white text-sage p-3 rounded-full transition-colors duration-200">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="bg-sage/10 hover:bg-sage hover:text-white text-sage p-3 rounded-full transition-colors duration-200">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="bg-cream p-8 rounded-2xl">
+                    <form class="space-y-6" data-implementation="Handle form submission and validation">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-forest mb-2">First Name</label>
+                                <input 
+                                    type="text" 
+                                    class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-sage focus:ring-1 focus:ring-sage focus:outline-none transition-colors"
+                                    data-validation="required"
+                                    data-mock="true"
+                                />
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-forest mb-2">Last Name</label>
+                                <input 
+                                    type="text" 
+                                    class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-sage focus:ring-1 focus:ring-sage focus:outline-none transition-colors"
+                                    data-validation="required"
+                                    data-mock="true"
+                                />
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-forest mb-2">Email</label>
+                            <input 
+                                type="email" 
+                                class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-sage focus:ring-1 focus:ring-sage focus:outline-none transition-colors"
+                                data-validation="email"
+                                data-mock="true"
+                            />
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-forest mb-2">Phone</label>
+                            <input 
+                                type="tel" 
+                                class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-sage focus:ring-1 focus:ring-sage focus:outline-none transition-colors"
+                                data-mock="true"
+                            />
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-forest mb-2">Message</label>
+                            <textarea 
+                                rows="4" 
+                                class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-sage focus:ring-1 focus:ring-sage focus:outline-none transition-colors resize-none"
+                                placeholder="Tell us how we can help you..."
+                                data-validation="required"
+                                data-mock="true"
+                            ></textarea>
+                        </div>
+
+                        <button 
+                            type="submit"
+                            class="w-full bg-sage hover:bg-forest text-white py-3 rounded-lg font-medium transition-colors duration-200"
+                            data-event="click:handleContactSubmit"
+                        >
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Contact Section -->
+
+    <!-- @COMPONENT: Footer -->
+    <!-- Footer -->
+    <footer class="bg-forest text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Brand -->
+                <div class="space-y-4">
+                    <div>
+                        <h3 class="text-2xl font-playfair font-bold">MRIDULOTA</h3>
+                        <p class="text-sm text-sage">মৃদুলতা</p>
+                    </div>
+                    <p class="text-sage text-sm">
+                        Handcrafted natural soaps made with love, tradition, and the finest organic ingredients from Bangladesh.
+                    </p>
+                    <div class="text-xs text-sage">
+                        ১০০% প্রাকৃতিক • হাতে তৈরি • পরিবেশবান্ধব
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sage">
+                        <li><a href="#home" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#shop" class="hover:text-white transition-colors">Shop</a></li>
+                        <li><a href="#about" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#contact" class="hover:text-white transition-colors">Contact</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Blog</a></li>
+                    </ul>
+                </div>
+
+                <!-- Products -->
+                <div>
+                    <h4 class="font-semibold mb-4">Products</h4>
+                    <ul class="space-y-2 text-sage">
+                        <li><a href="#" class="hover:text-white transition-colors">Natural Soaps</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Body Scrubs</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Essential Oils</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Gift Sets</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Seasonal Collection</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="font-semibold mb-4">Get in Touch</h4>
+                    <div class="space-y-2 text-sage text-sm">
+                        <p data-bind="contact.email">hello@mridulota.com</p>
+                        <p data-bind="contact.phone">+880 1XXX-XXXXXX</p>
+                        <p data-bind="contact.address">Dhaka, Bangladesh</p>
+                    </div>
+                    <div class="flex space-x-3 mt-4">
+                        <a href="#" class="bg-sage/20 hover:bg-sage text-sage hover:text-white p-2 rounded-full transition-all duration-200">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="bg-sage/20 hover:bg-sage text-sage hover:text-white p-2 rounded-full transition-all duration-200">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="bg-sage/20 hover:bg-sage text-sage hover:text-white p-2 rounded-full transition-all duration-200">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-sage/30 mt-12 pt-8 text-center text-sage text-sm">
+                <p>&copy; 2024 MRIDULOTA. All rights reserved. | Made with ❤️ for natural skincare lovers.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- @END_COMPONENT: Footer -->
+
+    <script>
+        (function() {
+            // TODO: Implement business logic, API calls, and state management
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Product filtering functionality (demo)
+            const filterButtons = document.querySelectorAll('[data-filter]');
+            const productCards = document.querySelectorAll('[data-category]');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Update active button
+                    filterButtons.forEach(btn => {
+                        btn.classList.remove('bg-sage', 'text-white');
+                        btn.classList.add('bg-white', 'text-sage');
+                    });
+                    this.classList.remove('bg-white', 'text-sage');
+                    this.classList.add('bg-sage', 'text-white');
+                    
+                    // Filter products
+                    productCards.forEach(card => {
+                        if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Mobile menu toggle
+            const mobileMenuButton = document.querySelector('.md\\:hidden button');
+            const mobileMenu = document.querySelector('.mobile-menu'); // This would be implemented in React
+            
+            // Add to cart functionality (demo)
+            document.querySelectorAll('[data-event*="addToCart"]').forEach(button => {
+                button.addEventListener('click', function() {
+                    // TODO: Implement cart functionality
+                    const cartCount = document.querySelector('[data-bind="cart.itemCount"]');
+                    const currentCount = parseInt(cartCount.textContent) || 0;
+                    cartCount.textContent = currentCount + 1;
+                    
+                    // Visual feedback
+                    this.textContent = 'Added!';
+                    this.classList.add('bg-forest');
+                    setTimeout(() => {
+                        this.textContent = 'Add to Cart';
+                        this.classList.remove('bg-forest');
+                    }, 1000);
+                });
+            });
+
+            // Form submissions (demo)
+            document.querySelectorAll('form').forEach(form => {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // TODO: Implement form validation and submission
+                    console.log('Form would be submitted:', new FormData(this));
+                });
+            });
+
+            // Newsletter signup
+            document.querySelector('[data-event*="handleNewsletterSignup"]')?.addEventListener('click', function(e) {
+                e.preventDefault();
+                // TODO: Implement newsletter signup
+                const email = this.previousElementSibling.value;
+                if (email) {
+                    alert('Thank you for subscribing! (This is a demo)');
+                    this.previousElementSibling.value = '';
+                }
+            });
+
+        })();
+    </script>
+
+</body>
+</html>
