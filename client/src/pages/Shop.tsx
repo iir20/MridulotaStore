@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { type Product } from '@shared/schema';
-import Navbar from '@/components/Navbar';
+import { Navigation } from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import ProductCard from '@/components/ProductCard';
 import { Button } from '@/components/ui/button';
@@ -27,7 +27,7 @@ export default function Shop() {
 
   return (
     <div className="min-h-screen bg-cream" data-testid="shop-page">
-      <Navbar />
+      <Navigation />
       
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-cream to-sage/10" data-testid="shop-hero">

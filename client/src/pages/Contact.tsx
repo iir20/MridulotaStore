@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
-import Navbar from '@/components/Navbar';
+import { Navigation } from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -31,7 +31,10 @@ export default function Contact() {
 
   const submitContact = useMutation({
     mutationFn: async (data: ContactFormData) => {
-      return await apiRequest('POST', '/api/contacts', data);
+      return await apiRequest('/api/contacts', {
+        method: 'POST',
+        body: JSON.stringify(data),
+      });
     },
     onSuccess: () => {
       toast({
@@ -66,7 +69,7 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen bg-cream" data-testid="contact-page">
-      <Navbar />
+      <Navigation />
       
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-sage/10 to-earth/10" data-testid="contact-hero">

@@ -1,7 +1,7 @@
 import { useParams } from 'wouter';
 import { useQuery } from '@tanstack/react-query';
 import { type Product } from '@shared/schema';
-import Navbar from '@/components/Navbar';
+import { Navigation } from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import ProductCard from '@/components/ProductCard';
 import { Button } from '@/components/ui/button';
@@ -48,7 +48,7 @@ export default function ProductDetail() {
   if (isLoading) {
     return (
       <div className="min-h-screen bg-cream">
-        <Navbar />
+        <Navigation />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="animate-pulse">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
@@ -73,7 +73,7 @@ export default function ProductDetail() {
   if (!product) {
     return (
       <div className="min-h-screen bg-cream">
-        <Navbar />
+        <Navigation />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="text-center">
             <h1 className="text-4xl font-playfair font-bold text-forest mb-4">Product Not Found</h1>
@@ -91,7 +91,7 @@ export default function ProductDetail() {
 
   return (
     <div className="min-h-screen bg-cream" data-testid="product-detail-page">
-      <Navbar />
+      <Navigation />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         {/* Breadcrumb */}

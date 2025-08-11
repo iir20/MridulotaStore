@@ -1,11 +1,11 @@
-import Navbar from '@/components/Navbar';
+import { Navigation } from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Card, CardContent } from '@/components/ui/card';
 
 export default function About() {
   return (
     <div className="min-h-screen bg-cream" data-testid="about-page">
-      <Navbar />
+      <Navigation />
       
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-sage/10 to-earth/10" data-testid="about-hero">

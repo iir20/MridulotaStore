@@ -1,7 +1,7 @@
 import { Link } from 'wouter';
 import { useQuery } from '@tanstack/react-query';
 import { type Product } from '@shared/schema';
-import Navbar from '@/components/Navbar';
+import { Navigation } from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import ProductCard from '@/components/ProductCard';
 import Newsletter from '@/components/Newsletter';
@@ -40,7 +40,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-cream" data-testid="home-page">
-      <Navbar />
+      <Navigation />
       
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-sage/10 to-earth/10 min-h-screen flex items-center" data-testid="hero-section">

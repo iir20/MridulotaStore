@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'wouter';
 import { useMutation } from '@tanstack/react-query';
-import Navbar from '@/components/Navbar';
+import { Navigation } from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { useCart } from '@/components/CartProvider';
 import { Button } from '@/components/ui/button';
@@ -36,7 +36,10 @@ export default function Cart() {
 
   const createOrder = useMutation({
     mutationFn: async (orderData: OrderData) => {
-      return await apiRequest('POST', '/api/orders', orderData);
+      return await apiRequest('/api/orders', {
+        method: 'POST',
+        body: JSON.stringify(orderData),
+      });
     },
     onSuccess: () => {
       toast({
@@ -100,7 +103,7 @@ export default function Cart() {
   if (items.length === 0) {
     return (
       <div className="min-h-screen bg-cream" data-testid="empty-cart">
-        <Navbar />
+        <Navigation />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="text-center">
             <ShoppingBag size={80} className="mx-auto text-sage mb-6" />
@@ -119,7 +122,7 @@ export default function Cart() {
 
   return (
     <div className="min-h-screen bg-cream" data-testid="cart-page">
-      <Navbar />
+      <Navigation />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <h1 className="text-4xl font-playfair font-bold text-forest mb-8" data-testid="cart-title">

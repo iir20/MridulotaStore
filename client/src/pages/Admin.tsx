@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useQuery, useMutation } from '@tanstack/react-query';
 import { type Product, type Order, type Contact } from '@shared/schema';
-import Navbar from '@/components/Navbar';
+import { Navigation } from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import { useAuth } from '@/hooks/useAuth';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -29,6 +30,7 @@ interface ProductFormData {
 }
 
 export default function Admin() {
+  const { user, isAuthenticated, isAdmin, isLoading } = useAuth();
   const { toast } = useToast();
   const [editingProduct, setEditingProduct] = useState<Product | null>(null);
   const [showProductForm, setShowProductForm] = useState(false);
@@ -60,7 +62,10 @@ export default function Admin() {
   // Mutations
   const createProduct = useMutation({
     mutationFn: async (data: ProductFormData) => {
-      return await apiRequest('POST', '/api/products', data);
+      return await apiRequest('/api/products', {
+        method: 'POST',
+        body: JSON.stringify(data),
+      });
     },
     onSuccess: () => {
       toast({ title: "Product created successfully!" });
@@ -79,7 +84,10 @@ export default function Admin() {
 
   const updateProduct = useMutation({
     mutationFn: async ({ id, data }: { id: string; data: ProductFormData }) => {
-      return await apiRequest('PUT', `/api/products/${id}`, data);
+      return await apiRequest(`/api/products/${id}`, {
+        method: 'PUT',
+        body: JSON.stringify(data),
+      });
     },
     onSuccess: () => {
       toast({ title: "Product updated successfully!" });
@@ -99,7 +107,9 @@ export default function Admin() {
 
   const deleteProduct = useMutation({
     mutationFn: async (id: string) => {
-      return await apiRequest('DELETE', `/api/products/${id}`);
+      return await apiRequest(`/api/products/${id}`, {
+        method: 'DELETE',
+      });
     },
     onSuccess: () => {
       toast({ title: "Product deleted successfully!" });
@@ -116,7 +126,10 @@ export default function Admin() {
 
   const updateOrderStatus = useMutation({
     mutationFn: async ({ id, status }: { id: string; status: string }) => {
-      return await apiRequest('PUT', `/api/orders/${id}/status`, { status });
+      return await apiRequest(`/api/orders/${id}/status`, {
+        method: 'PUT',
+        body: JSON.stringify({ status }),
+      });
     },
     onSuccess: () => {
       toast({ title: "Order status updated!" });
@@ -196,9 +209,48 @@ export default function Admin() {
     }
   };
 
+  // Show loading while authentication is being checked
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-cream flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-sage"></div>
+          <p className="mt-4 text-gray-600">Loading...</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Redirect to home if not authenticated or not admin
+  if (!isAuthenticated || !isAdmin) {
+    return (
+      <div className="min-h-screen bg-cream" data-testid="admin-unauthorized">
+        <Navigation />
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+          <div className="text-center">
+            <h1 className="text-4xl font-playfair font-bold text-forest mb-4" data-testid="unauthorized-title">
+              Access Denied
+            </h1>
+            <p className="text-lg text-gray-600 mb-8">
+              You need administrator privileges to access this page.
+            </p>
+            <Button 
+              onClick={() => window.history.back()} 
+              className="bg-sage hover:bg-forest text-white"
+              data-testid="button-go-back"
+            >
+              Go Back
+            </Button>
+          </div>
+        </div>
+        <Footer />
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-cream" data-testid="admin-page">
-      <Navbar />
+      <Navigation />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="mb-8">
