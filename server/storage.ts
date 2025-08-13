@@ -202,7 +202,14 @@ export class MemStorage implements IStorage {
   async createUser(insertUser: InsertUser): Promise<User> {
     const id = randomUUID();
     const user: User = { 
-      ...insertUser, 
+      firstName: insertUser.firstName ?? null,
+      lastName: insertUser.lastName ?? null,
+      email: insertUser.email,
+      password: insertUser.password ?? null,
+      role: insertUser.role ?? "customer",
+      profileImageUrl: insertUser.profileImageUrl ?? null,
+      phone: insertUser.phone ?? null,
+      address: insertUser.address ?? null,
       id, 
       createdAt: new Date(), 
       updatedAt: new Date() 
@@ -261,7 +268,7 @@ export class MemStorage implements IStorage {
 
   async cleanExpiredSessions(): Promise<void> {
     const now = new Date();
-    for (const [token, session] of this.userSessions) {
+    for (const [token, session] of Array.from(this.userSessions.entries())) {
       if (session.expiresAt < now) {
         this.userSessions.delete(token);
       }
@@ -288,7 +295,16 @@ export class MemStorage implements IStorage {
   async createProduct(insertProduct: InsertProduct): Promise<Product> {
     const id = randomUUID();
     const product: Product = { 
-      ...insertProduct, 
+      name: insertProduct.name,
+      nameBengali: insertProduct.nameBengali ?? null,
+      description: insertProduct.description,
+      price: insertProduct.price,
+      category: insertProduct.category,
+      imageUrl: insertProduct.imageUrl,
+      ingredients: insertProduct.ingredients ?? null,
+      benefits: insertProduct.benefits ?? null,
+      inStock: insertProduct.inStock ?? true,
+      featured: insertProduct.featured ?? false,
       id, 
       createdAt: new Date() 
     };
@@ -321,7 +337,15 @@ export class MemStorage implements IStorage {
   async createOrder(insertOrder: InsertOrder): Promise<Order> {
     const id = randomUUID();
     const order: Order = { 
-      ...insertOrder, 
+      userId: insertOrder.userId ?? null,
+      customerName: insertOrder.customerName,
+      customerEmail: insertOrder.customerEmail,
+      customerPhone: insertOrder.customerPhone ?? null,
+      customerAddress: insertOrder.customerAddress,
+      totalAmount: insertOrder.totalAmount,
+      status: insertOrder.status ?? "pending",
+      paymentMethod: insertOrder.paymentMethod ?? "cod",
+      items: insertOrder.items,
       id, 
       createdAt: new Date() 
     };
@@ -346,7 +370,11 @@ export class MemStorage implements IStorage {
   async createContact(insertContact: InsertContact): Promise<Contact> {
     const id = randomUUID();
     const contact: Contact = { 
-      ...insertContact, 
+      firstName: insertContact.firstName,
+      lastName: insertContact.lastName,
+      email: insertContact.email,
+      phone: insertContact.phone ?? null,
+      message: insertContact.message,
       id, 
       status: "unread",
       createdAt: new Date() 
@@ -372,7 +400,10 @@ export class MemStorage implements IStorage {
   async createNewsletterSubscription(insertNewsletter: InsertNewsletter): Promise<Newsletter> {
     const id = randomUUID();
     const subscription: Newsletter = { 
-      ...insertNewsletter, 
+      email: insertNewsletter.email,
+      firstName: insertNewsletter.firstName ?? null,
+      lastName: insertNewsletter.lastName ?? null,
+      mailchimpId: insertNewsletter.mailchimpId ?? null,
       id, 
       status: "subscribed",
       createdAt: new Date() 
@@ -444,7 +475,7 @@ class DatabaseStorage implements IStorage {
 
   async deleteUserSession(token: string): Promise<boolean> {
     const result = await db.delete(userSessions).where(eq(userSessions.sessionToken, token));
-    return result.rowCount > 0;
+    return (result.rowCount ?? 0) > 0;
   }
 
   async cleanExpiredSessions(): Promise<void> {
@@ -487,7 +518,7 @@ class DatabaseStorage implements IStorage {
 
   async deleteProduct(id: string): Promise<boolean> {
     const result = await db.delete(products).where(eq(products.id, id));
-    return result.rowCount > 0;
+    return (result.rowCount ?? 0) > 0;
   }
 
   // Orders
