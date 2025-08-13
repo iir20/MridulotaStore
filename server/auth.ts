@@ -2,6 +2,10 @@ import { Request, Response, NextFunction } from "express";
 import { storage } from "./storage";
 import { randomUUID } from "crypto";
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
+
+const JWT_SECRET = process.env.JWT_SECRET || "mridulota-secret-key-change-in-production";
+const JWT_EXPIRES_IN = "7d";
 
 declare global {
   namespace Express {
@@ -29,6 +33,18 @@ export async function generateSessionToken(): Promise<string> {
   return randomUUID();
 }
 
+export function generateJWT(payload: { userId: string; email: string; role: string }): string {
+  return jwt.sign(payload, JWT_SECRET, { expiresIn: JWT_EXPIRES_IN });
+}
+
+export function verifyJWT(token: string): { userId: string; email: string; role: string } | null {
+  try {
+    return jwt.verify(token, JWT_SECRET) as { userId: string; email: string; role: string };
+  } catch (error) {
+    return null;
+  }
+}
+
 export async function authenticateToken(req: Request, res: Response, next: NextFunction) {
   const authHeader = req.headers['authorization'];
   const token = authHeader && authHeader.split(' ')[1]; // Bearer TOKEN
@@ -38,6 +54,23 @@ export async function authenticateToken(req: Request, res: Response, next: NextF
   }
 
   try {
+    // First try JWT verification
+    const jwtPayload = verifyJWT(token);
+    if (jwtPayload) {
+      const user = await storage.getUser(jwtPayload.userId);
+      if (user) {
+        req.user = {
+          id: user.id,
+          email: user.email,
+          role: user.role,
+          firstName: user.firstName || undefined,
+          lastName: user.lastName || undefined,
+        };
+        return next();
+      }
+    }
+
+    // Fallback to session-based authentication
     const session = await storage.getUserSession(token);
     if (!session) {
       return res.status(401).json({ message: 'Invalid or expired token' });

@@ -1,10 +1,22 @@
 import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
+import { setupSecurityMiddleware } from "./middleware";
+import { logger } from "./logger";
 
 const app = express();
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+
+// Trust proxy for Replit environment
+app.set('trust proxy', true);
+
+// Security and middleware setup
+setupSecurityMiddleware(app);
+
+// Request logging
+app.use(logger.requestLogger());
+
+app.use(express.json({ limit: '10mb' }));
+app.use(express.urlencoded({ extended: false, limit: '10mb' }));
 
 app.use((req, res, next) => {
   const start = Date.now();
